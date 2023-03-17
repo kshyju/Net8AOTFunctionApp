@@ -3,7 +3,7 @@
 ### To run AOT published version:
 
 1. Use the worker packages from this branch: https://github.com/Azure/azure-functions-dotnet-worker/tree/shkr/aot_for-net8. 
-[This build](https://azfunc.visualstudio.com/Azure%20Functions/_build/results?buildId=120803&view=results) was using that build and you may use those artifacts. 
+[This build](https://azfunc.visualstudio.com/Azure%20Functions/_build/results?buildId=120803&view=results) was using that branch and you may use those artifacts.  
 
 2. Set up a local nuget source and drop the packages from above step.
 
