@@ -1,12 +1,45 @@
 ﻿using Microsoft.Azure.Functions.Worker.Context.Features;
+using Microsoft.Azure.Functions.Worker.Core.FunctionMetadata;
 using Microsoft.Azure.Functions.Worker.Invocation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Net8AOTFunctionApp;
+using System.Collections.Immutable;
 
 namespace Microsoft.Azure.Functions.Worker
 {
+    public class GeneratedFunctionMetadataProvider2 : IFunctionMetadataProvider
+    {
+        ILogger<GeneratedFunctionMetadataProvider2> logger;
+        public GeneratedFunctionMetadataProvider2(ILoggerFactory loggerFactory)
+        {
+            logger = loggerFactory.CreateLogger<GeneratedFunctionMetadataProvider2>();
+        }
+
+        public Task<ImmutableArray<IFunctionMetadata>> GetFunctionMetadataAsync(string directory)
+        {
+            logger.LogInformation("GeneratedFunctionMetadataProvider2 GetFunctionMetadataAsync invoked");
+
+            var metadataList = new List<IFunctionMetadata>();
+            var Function0RawBindings = new List<string>();
+            Function0RawBindings.Add(@"{""name"":""req"",""type"":""HttpTrigger"",""direction"":""In"",""authLevel"":""Anonymous"",""methods"":[""get"",""post""]}");
+            Function0RawBindings.Add(@"{""name"":""$return"",""type"":""http"",""direction"":""Out""}");
+
+            var Function0 = new DefaultFunctionMetadata
+            {
+                Language = "dotnet-isolated",
+                Name = "Function1",
+                EntryPoint = "Net8AOTFunctionApp.Function1.Run",
+                RawBindings = Function0RawBindings,
+                ScriptFile = "Net8AOTFunctionApp.dll"
+            };
+            metadataList.Add(Function0);
+
+            return Task.FromResult(metadataList.ToImmutableArray());
+        }
+    }
+
     internal class DirectFunctionExecutor : IFunctionExecutor
     {
         private readonly IFunctionActivator _functionActivator;
